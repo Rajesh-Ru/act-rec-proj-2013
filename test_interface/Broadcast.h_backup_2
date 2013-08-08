@@ -1,0 +1,116 @@
+#pragma once
+#include <functional>
+#include <unordered_map>
+template <class T, class C>
+class BroadcastBase{
+private:
+	enum{ _insert, _remove } volatile op;
+protected:
+	std::unordered_map<void*, std::function<T>> fs;
+public:
+	inline BroadcastBase(){ op = _insert; }
+	template <class F> inline
+	C& Insert(F const& f){
+		op = _insert; 
+		fs[(void*)&f] = std::function<T>(f);
+		return (C&)*this;
+	}
+	template <class F> inline
+	C& operator+=(F const& f){
+		return Insert(f);
+	}
+	template <class F> inline
+	void Remove(F const& f){
+		op = _remove;
+		fs.erase((void*)&f);
+	}
+	template <class F> inline
+	C& operator-=(F const& f){
+		Remove(f);
+		return (C&)*this;
+	}
+	template <class F> inline
+	C& operator,(F const& f){
+		return (C&)(_insert == op ? *this += f : _remove == op ? *this -= f : *this);
+	}
+	inline void Clear(){
+		fs.clear();
+	}
+	//template <class F> inline
+	//C& operator=(F const& f){
+	//	Clear();
+	//	auto k = &f;
+	//	return _Insert(k);
+	//}
+	inline auto begin()->decltype(fs.begin()){
+		return fs.begin();
+	}
+	inline auto end()->decltype(fs.end()){
+		return fs.end();
+	}
+};
+
+
+template <class T>
+struct Broadcast;
+
+template <class T>
+struct BrType{
+	typedef BroadcastBase<T, Broadcast<T>> Base;
+};
+
+template <>
+struct Broadcast<void()> : public BrType<void()>::Base{
+ public:
+	//using BrType<void()>::Base::operator=;
+	inline void operator()()const{
+		for(auto& p : fs)
+			p.second();
+	}
+};
+
+template <class A0>
+class  Broadcast<void(A0)> : public BroadcastBase<void(A0), Broadcast<void(A0)>>{
+public:
+	//using BrType<void(A0)>::Base::operator=;
+	inline void operator()(A0 a0)const{
+		for(auto& p : this->fs)
+			p.second(a0);
+	}
+};
+
+template <class A0, class A1>
+struct Broadcast<void(A0,A1)> : public BrType<void(A0,A1)>::Base{
+	//using BrType<void(A0,A1)>::Base::operator=;
+	inline void operator()(A0 a0, A1 a1)const{
+		for(auto& p : this->fs)
+			p.second(a0, a1);
+	}
+};
+
+template <class A0, class A1, class A2>
+struct Broadcast<void(A0,A1,A2)> : public BrType<void(A0,A1,A2)>::Base{
+	//using BrType<void(A0,A1,A2)>::Base::operator=;
+	inline void operator()(A0 a0, A1 a1, A2 a2)const{
+		for(auto& p : fs)
+			p.second(a0, a1, a2);
+	}
+};
+
+template <class A0, class A1, class A2, class A3>
+struct Broadcast<void(A0,A1,A2,A3)> : public BrType<void(A0,A1,A2,A3)>::Base{
+	//using BrType<void(A0,A1,A2,A3)>::Base::operator=;
+	inline void operator()(A0 a0, A1 a1, A2 a2, A3 a3)const{
+		for(auto& p : fs)
+			p.second(a0, a1, a2, a3);
+	}
+};
+
+template <class A0, class A1, class A2, class A3, class A4>
+struct Broadcast<void(A0,A1,A2,A3,A4)> : public BrType<void(A0,A1,A2,A3,A4)>::Base{
+	//using BrType<void(A0,A1,A2,A3,A4)>::Base::operator=;
+	inline void operator()(A0 a0, A1 a1, A2 a2, A3 a3, A4 a4)const{
+		for(auto& p : fs)
+			p.second(a0, a1, a2, a3, a4);
+	}
+};

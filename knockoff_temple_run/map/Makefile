@@ -1,0 +1,2 @@
+all:
+	g++ -w -std=c++11 -I/usr/local/include -L/usr/local/lib map_logic.cpp map_drawer.cpp test_map.cpp ../model_drawer/*.cpp ../glm/*.cpp -o test_map -lpthread -lrt -lXi -lX11 -lXxf86vm -lXrandr -lGL -lGLU -lglfw3 -lfreeimage

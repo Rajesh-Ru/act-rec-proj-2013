@@ -1,0 +1,16 @@
+0 /home/rajesh/Documents/computer_vision/summer_training/current_works/act_rec_2/skel_editor/processed_data/keze/fireball_others_001.yaml
+0 /home/rajesh/Documents/computer_vision/summer_training/current_works/act_rec_2/skel_editor/processed_data/rajesh/fireball_others_008.yaml
+0 /home/rajesh/Documents/computer_vision/summer_training/current_works/act_rec_2/skel_editor/processed_data/rajesh/fireball_others_007.yaml
+0 /home/rajesh/Documents/computer_vision/summer_training/current_works/act_rec_2/skel_editor/processed_data/rajesh/fireball_others_006.yaml
+0 /home/rajesh/Documents/computer_vision/summer_training/current_works/act_rec_2/skel_editor/processed_data/rajesh/fireball_others_005.yaml
+0 /home/rajesh/Documents/computer_vision/summer_training/current_works/act_rec_2/skel_editor/processed_data/rajesh/fireball_others_004.yaml
+0 /home/rajesh/Documents/computer_vision/summer_training/current_works/act_rec_2/skel_editor/processed_data/rajesh/fireball_others_003.yaml
+0 /home/rajesh/Documents/computer_vision/summer_training/current_works/act_rec_2/skel_editor/processed_data/rajesh/fireball_others_002.yaml
+0 /home/rajesh/Documents/computer_vision/summer_training/current_works/act_rec_2/skel_editor/processed_data/rajesh/fireball_others_001.yaml
+0 /home/rajesh/Documents/computer_vision/summer_training/current_works/act_rec_2/skel_editor/processed_data/dongxue/fireball_others_001.yaml
+1 /home/rajesh/Documents/computer_vision/summer_training/current_works/act_rec_2/skel_editor/processed_data/keze/fireball_start_001.yaml
+1 /home/rajesh/Documents/computer_vision/summer_training/current_works/act_rec_2/skel_editor/processed_data/rajesh/fireball_start_008.yaml
+1 /home/rajesh/Documents/computer_vision/summer_training/current_works/act_rec_2/skel_editor/processed_data/rajesh/fireball_start_005.yaml
+1 /home/rajesh/Documents/computer_vision/summer_training/current_works/act_rec_2/skel_editor/processed_data/rajesh/fireball_start_003.yaml
+1 /home/rajesh/Documents/computer_vision/summer_training/current_works/act_rec_2/skel_editor/processed_data/rajesh/fireball_start_001.yaml
+1 /home/rajesh/Documents/computer_vision/summer_training/current_works/act_rec_2/skel_editor/processed_data/dasheng/fireball_start_001.yaml
